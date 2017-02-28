@@ -1,0 +1,7 @@
+*TXT
+.Rhistory
+.RData
+.Rproj.user/
+*~
+*.Rproj
+.Rproj.user
