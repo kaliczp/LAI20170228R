@@ -9,6 +9,13 @@ LAIann <- function(x, year)
   plot(x[year.char])  
 }
 
-LAI.loe <- lowess(index(LAI.x),as.numeric(LAI.x),f=0.001)
+LAIann(LAI.x, 2013)
+
+LAI.loe <- lowess(index(LAI.x),as.numeric(LAI.x),f=0.01)
 LAI.lt <- xts(LAI.loe$y, index(LAI.x))
-lines(LAI.lt)
+lines(LAI.lt-2, col=2)
+
+LAI.x1 <- LAI.x
+LAI.x1[LAI.x < LAI.lt-2] <- NA
+LAI.x1 <- na.approx(LAI.x1)
+LAIann(LAI.x1, 2013)
