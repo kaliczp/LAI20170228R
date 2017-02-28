@@ -3,7 +3,8 @@ raw <- read.csv("Hidegviz4daysWhole-MCD15A3H-006-results.csv")
 library(xts)
 LAI.x <- xts(raw[,9],as.Date(raw[,3]))
 
-LAIann <- function(x)
+LAIann <- function(x, year)
 {
-  plot(x)  
+  year.char <- as.character(year)
+  plot(x[year.char])  
 }
