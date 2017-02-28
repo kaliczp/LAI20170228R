@@ -8,3 +8,7 @@ LAIann <- function(x, year)
   year.char <- as.character(year)
   plot(x[year.char])  
 }
+
+LAI.loe <- lowess(index(LAI.x),as.numeric(LAI.x),f=0.001)
+LAI.lt <- xts(LAI.loe$y, index(LAI.x))
+lines(LAI.lt)
