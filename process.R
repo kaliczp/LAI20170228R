@@ -18,4 +18,10 @@ lines(LAI.lt-2, col=2)
 LAI.x1 <- LAI.x
 LAI.x1[LAI.x < LAI.lt-2] <- NA
 LAI.x1 <- na.approx(LAI.x1)
-LAIann(LAI.x1, 2013)
+
+LAIann(LAI.x1, 2010)
+lines(LAI.x)
+
+as.Date(paste0("20",rep(c(paste0("0",2:9),10:16),each=2),c("-05-01","-09-01")))
+
+
