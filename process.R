@@ -42,4 +42,7 @@ LAI.df <- data.frame(month=month.ws,max=as.numeric(monthly.max),min=as.numeric(a
 o
 LAI.df[LAI.df$month == "summer",3] <- NA
 LAI.df[LAI.df$month == "winter",2] <- NA
-LAI.df
+
+LAI.maxmin <- xts(ifelse(is.na(LAI.df[,2]),LAI.df[,3],LAI.df[,2]),index(monthly.max))
+plot(LAI.x, col=2)
+lines(LAI.maxmin)
