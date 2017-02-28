@@ -24,4 +24,22 @@ lines(LAI.x)
 
 as.Date(paste0("20",rep(c(paste0("0",2:9),10:16),each=2),c("-05-01","-09-01")))
 
+month.num <- as.numeric(format(index(LAI.x),"%m"))
+month.recod <- ifelse(month.num < 5,13,month.num)
+month.ws <- ifelse(month.recod >= 10,"winter","summer")
 
+tapply(as.numeric(LAI.x), month.ws, max)
+
+plot(apply.monthly(LAI.x1,max))
+
+monthly.max <- round(apply.monthly(LAI.x1,max),1)
+
+month.num <- as.numeric(format(index(monthly.max),"%m"))
+month.recod <- ifelse(month.num < 5,13,month.num)
+month.ws <- ifelse(month.recod >= 10,"winter","summer")
+
+LAI.df <- data.frame(month=month.ws,max=as.numeric(monthly.max),min=as.numeric(apply.monthly(LAI.x1,min)))
+o
+LAI.df[LAI.df$month == "summer",3] <- NA
+LAI.df[LAI.df$month == "winter",2] <- NA
+LAI.df
