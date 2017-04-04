@@ -65,3 +65,4 @@ lines(LAI.maxmin,lwd=2)
 date.new <- seq(as.Date("2002-07-15"),as.Date("2016-12-15"),by="days")
 LAI.d <- xts(rep(NA,length(date.new)),date.new)
 LAI.d <- round(na.approx(merge.xts(LAI.d,LAI.maxmin)[,2]),1)
+
